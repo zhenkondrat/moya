@@ -150,6 +150,7 @@ return [
 
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        SleepingOwl\Admin\AdminServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -210,6 +211,16 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        'Admin'         => SleepingOwl\Admin\Admin::class,
+        'AdminAuth'     => SleepingOwl\AdminAuth\Facades\AdminAuth::class,
+        'Column'        => SleepingOwl\Admin\Columns\Column::class,
+        'ColumnFilter'  => SleepingOwl\Admin\ColumnFilters\ColumnFilter::class,
+        'Filter'        => SleepingOwl\Admin\Filter\Filter::class,
+        'AdminDisplay'  => SleepingOwl\Admin\Display\AdminDisplay::class,
+        'AdminForm'     => SleepingOwl\Admin\Form\AdminForm::class,
+        'AdminTemplate' => SleepingOwl\Admin\Templates\Facade\AdminTemplate::class,
+        'FormItem'      => SleepingOwl\Admin\FormItems\FormItem::class,
 
     ],
 
