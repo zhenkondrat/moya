@@ -5,11 +5,11 @@
  * For full list see documentation.
  */
 
-Admin::model('App\User')->title('Users')->display(function ()
+Admin::model('App\User')->title('Пользователи')->display(function ()
 {
 	$display = AdminDisplay::table();
 	$display->columns([
-		Column::string('name')->label('Name'),
+		Column::string('first_name')->label('first_name'),
 		Column::string('email')->label('Email'),
 	]);
 	return $display;
@@ -17,8 +17,12 @@ Admin::model('App\User')->title('Users')->display(function ()
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('name', 'Name')->required(),
-		FormItem::text('email', 'Email')->required()->unique(),
+		FormItem::text('email', 'Email'),
+		FormItem::password('password', 'Password'),
+		FormItem::timestamp('last_login', 'Last Login')->format('d.m.Y'),//->seconds(true),
+		FormItem::text('first_name', 'First Name'),
+		FormItem::text('last_name', 'Last Name'),
+		FormItem::multiselect('theroles', 'Роли')->model('App\Role')->display('name'),
 	]);
 	return $form;
-});
+})->delete(function ($id) { if ( in_array($id, [1])) return null; else return 1; });

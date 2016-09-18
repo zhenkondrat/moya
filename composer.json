@@ -16,7 +16,9 @@
         "laravel/framework": "5.2.*",
         "sleeping-owl/admin": "dev-fixSentinelfix52",
         "cartalyst/sentinel": "2.0.*",
-        "laravelcollective/html": "5.2.*"
+        "laravelcollective/html": "5.2.*",
+        "intervention/image": "^2.3",
+        "intervention/imagecache": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

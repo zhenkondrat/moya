@@ -5,7 +5,7 @@ return [
 	 * Admin title
 	 * Displays in page title and header
 	 */
-	'title'                   => 'Sleeping Owl administrator',
+	'title'                   => 'Админка',
 
 	/*
 	 * Admin url prefix
@@ -15,7 +15,7 @@ return [
 	/*
 	 * Middleware to use in admin routes
 	 */
-	'middleware'              => ['admin.auth'],
+	'middleware' => ['isadmin'],
 
 	/*
 	 * Path to admin bootstrap files directory
@@ -32,12 +32,12 @@ return [
 	 * Authentication config
 	 */
 	'auth'                    => [
-		'model' => '\SleepingOwl\AdminAuth\Entities\Administrator',
+		'model' => \App\User::class,
 		'rules' => [
-			'username' => 'required',
+			'email' => 'required',
 			'password' => 'required',
 		]
-	],
+	],	
 
 	/*
 	 * Template to use
