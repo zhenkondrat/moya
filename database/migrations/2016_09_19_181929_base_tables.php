@@ -24,10 +24,10 @@ class BaseTables extends Migration
             $table->integer('sales_id');
             $table->timestamps();
 
-            $table->index('sales_id');
+            // $table->index('sales_id');
 
         });
-        DB::statement('ALTER TABLE shop ADD location POINT' );
+        DB::statement('ALTER TABLE shops ADD location POINT' );
 
 
         Schema::create('reklams', function (Blueprint $table) {

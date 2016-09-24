@@ -222,6 +222,7 @@ return [
         'AdminForm'     => SleepingOwl\Admin\Form\AdminForm::class,
         'AdminTemplate' => SleepingOwl\Admin\Templates\Facade\AdminTemplate::class,
         'FormItem'      => SleepingOwl\Admin\FormItems\FormItem::class,
+        'ModelItem'     => SleepingOwl\Admin\Models\ModelItem::class,
 
         'Image' => Intervention\Image\Facades\Image::class,
 
