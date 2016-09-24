@@ -12,6 +12,16 @@ class Reklam extends Model
         return $this->belongsToMany('App\Shop');
 	}
 
+    public function magazines()
+    {
+        return $this->hasMany('App\Magazine');
+    }
+
+    public function products()
+    {
+        return $this->hasMany('App\Product');
+    }
+
 	public function setShopsAttribute($shops)
     {
         // перепрописываем отношения с таблицей shops

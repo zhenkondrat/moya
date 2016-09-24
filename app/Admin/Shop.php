@@ -22,7 +22,7 @@ Admin::model('App\Shop')->title('Магазин')->display(function ()
 		FormItem::ckeditor('work_graph', 'work_graph'),
 		FormItem::text('phone', 'phone'),
 		FormItem::checkbox('enabled', 'enabled'),
-		FormItem::select('sales_id', 'Права доступа')->model('App\Sale')->display('adress'),
+		FormItem::select('sales_id', 'Права доступа')->model('App\Sale')->display('name'),
 	]);
 	return $form;
 });
