@@ -12,7 +12,6 @@ Admin::model('App\Product')->title('Tovar')->display(function ()
 	 $display->filters([
 
 	 ]);
-	// $display = AdminDisplay::table();
 	$display->columns([
 		Column::string('name')->label('name'),
 		Column::image('image'),
@@ -30,8 +29,6 @@ Admin::model('App\Product')->title('Tovar')->display(function ()
 		FormItem::text('price', 'name'),
 		FormItem::select('reklam_id', 'Права доступа')->model('App\Reklam')->display('name'),
 		FormItem::select('category_id', 'Kateg')->model('App\Category')->display('name'),
-		// FormItem::checkbox('enabled', 'enabled'),
-		// FormItem::select('sales_id', 'Права доступа')->model('App\Sale')->display('name'),
 	]);
 	return $form;
 });
