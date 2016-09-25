@@ -10,7 +10,14 @@ $(document).ready(function() {
 	//Документация: http://fancybox.net/howto
 	//<a class="fancybox"><img src="image.jpg" /></a>
 	//<a class="fancybox" data-fancybox-group="group"><img src="image.jpg" /></a>
-	$(".fancybox").fancybox();
+	$(".fancybox").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false,
+		'hideOnContentClick': true
+	});
 
 	//Навигация по Landing Page
 	//$(".top_mnu") - это верхняя панель со ссылками.
@@ -36,10 +43,14 @@ $(document).ready(function() {
 	});
 
 	//Каруселька
-	//Документация: http://owlgraphic.com/owlcarousel/
+	//Документация:  
 	var owl = $(".carousel");
 	owl.owlCarousel({
-		items : 4
+		autoPlay: 3000,
+		items : 4,		
+    	lazyLoad : true,
+      	pagination: true,
+    	stopOnHover : true
 	});
 	owl.on("mousewheel", ".owl-wrapper", function (e) {
 		if (e.deltaY > 0) {

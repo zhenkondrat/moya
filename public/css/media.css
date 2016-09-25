@@ -5,6 +5,10 @@
 	.top{
 		background: #11d;
 	}
+	.search{
+		margin-left: 4%;
+	}
+
 }
 
 /* Medium Devices, Desktops */
@@ -19,7 +23,12 @@
 	.top{
 		background: #999;
 	}
+	.top-btns{
+		margin-left: 6%; 
+		width: 90%;
+	}
 }
+
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
@@ -32,6 +41,9 @@
 @media only screen and (max-width : 320px) {
 	.top{
 		background: #111;
+	}
+	.btn{
+		content: '';
 	}
 }
 

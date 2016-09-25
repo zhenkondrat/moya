@@ -46,6 +46,13 @@ section{
 	background: #eee;
 }
 
+header{
+	margin-bottom: 25px;
+}
+
+footer{
+	margin-top: 60px;
+}
 /* ------------------- */
 .top{
 	/*height: 100px;*/
@@ -61,7 +68,7 @@ section{
 	outline-style: none;	
 }
 
-.search{
+.search>input{
 	width: 100%;
 	height: 40px;
 	font-size: 16px;
@@ -75,12 +82,36 @@ section{
 	box-shadow: 0 5px 0 red; 
 }
 
+.search { position: relative; }
+.search input { text-indent: 30px;}
+.search .fa-search { 
+  position: absolute;
+  top: 78px;
+  left: 10px;
+  font-size: 24px;
+}
+
+.top-btns{
+	position: relative;
+	float: left;
+	padding: 0;
+}
+
+.top-btns:parent{
+	padding: 0;
+}
+
+
+
+
 .btn{
 	text-transform: uppercase;
 	font-size: 14px;
 	float: left;		
-	margin-left: 20px;
-	width: 40%;
+	margin-left: 0px;
+	width: 45%;
+	padding: 1px 6px;
+	text-align: center;
 }
 
 .ltl{
@@ -117,6 +148,10 @@ section{
 	box-shadow: 0 5px 0 red; 
 }
 
+.top-btns > div > .btn:nth-child(2) {
+	margin-left: 20px;
+}
+
 .white-btn:hover{
 	/*color: yellow;*/
 	box-shadow: 0 -5px 0 #333;
@@ -151,6 +186,11 @@ li>a{
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: bold;
+}
+
+li>a>i{
+	color: red;
+	margin-right: 5px;	
 }
 
 li:hover>a{
@@ -222,16 +262,16 @@ li.active{
 	float: left;
 }
 
-.slide>img{
+.slide>img, .slide>a>img{
 	height: 19em;
 }
 
-.checkers{
-	margin: 0 40%;
+.checkers, .owl-pagination{
+	margin: 5px 0 0 45%;
 	float: left;
 }
 
-.checker{
+.checker, .owl-page{
 	width: 10px;
 	height: 10px;
 	border: 2px solid #888;
@@ -239,7 +279,15 @@ li.active{
 	margin: 10px;
 }
 
-.checker-active{
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-page.active{
 	background: #333;
 }
 
@@ -265,14 +313,22 @@ footer{
 	font-weight: normal;
 }
 
+.bottom-footer{
+	position: relative;
+	/*min-height: 100%;*/
+}
+
 .bottom-line{
-	/*position: absolute;*/
+	/*position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 0;*/
 	width: 100%;
-	height: 80px;
+	height: auto;
 	background: #300000;
+	margin-top: 10px;
+	margin-bottom: 5px;
 	border: 1px solid #000;
+
 
 	text-align: center;
 
