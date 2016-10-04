@@ -16,6 +16,8 @@
 // });
 
 Route::get('/', 'SiteController@startPage');
+Route::get('sales', 'SiteController@salesPage');
+Route::get('reklams', 'SiteController@reklamsPage');
 
 Route::group(['middleware' => ['web']], function () {
 

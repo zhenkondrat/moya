@@ -1,7 +1,7 @@
 <footer>
 		<div class="container">
 				<div class="row">
-					<div class="col-sm-5 col-md-3  ">
+					<div class="col-xs-6 col-sm-4 col-md-3  ">
 						<h3><strong>Карта сайта:</strong></h3>	
 						<ul class="site-map">
 							<li><a href="#">Главная страница</a></li>
@@ -13,9 +13,9 @@
 							<li><a href="#">Мобильное приложение</a></li>
 						</ul>
 					</div>
-					<div class="col-sm-6 col-md-6">	
+					<div class="hidden-xs col-sm-4 col-md-6">	
 					</div>
-					<div class="col-sm-3 col-md-3">	
+					<div class="col-xs-6 col-sm-4 col-md-3">	
 					<h3><strong>Дополнительно:</strong></h3>	
 						<ul class="site-map">
 							<li><a href=""><strong>Moyareklamka.com</strong></a></li>

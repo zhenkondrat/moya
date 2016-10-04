@@ -28,7 +28,7 @@ Admin::model('App\Reklam')->title('Рекламка')->display(function ()
 		FormItem::date('begin', 'Date'),
 		FormItem::date('end', 'Date'),
 		FormItem::multiselect('shops', 'Магазины')->model('App\Shop')->display('name'),
-		// FormItem::checkbox('enabled', 'enabled'),
+		FormItem::checkbox('enabled', 'enabled'),
 		// FormItem::select('sales_id', 'Права доступа')->model('App\Sale')->display('name'),
 	]);
 	return $form;

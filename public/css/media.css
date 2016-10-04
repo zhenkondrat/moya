@@ -16,6 +16,10 @@
 	.top{
 		background: #bbb;
 	}
+	.main-menu>li>a{
+		/*display:none;*/
+		font-size: 80%;
+	}
 }
 
 /* Small Devices, Tablets */
@@ -23,9 +27,42 @@
 	.top{
 		background: #999;
 	}
+	.top-menu{
+		height: auto;
+	}
 	.top-btns{
 		margin-left: 6%; 
+		margin-bottom: 6%; 
 		width: 90%;
+	}
+	.main-menu > li {
+        float: none;
+		margin: 0;
+    }
+    .main-menu {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+    .main-menu>li>a{
+		text-align: center;
+	}
+	.site-map>li>a{
+		font-size: 80%;
+	} 
+	.site-map{
+		padding: 0;
+	}
+	.site-map>li{
+		display: inline-block;
+	}
+	.logo{
+		display: block;
+	    margin: 20px auto;	    
+	}
+	.ltl:nth-child(4n+4) {
+	    clear:left;
+	    float:left;
 	}
 }
 
@@ -34,6 +71,9 @@
 @media only screen and (max-width : 480px) {
 	.top{
 		background: #666;
+	}
+	.btn{
+		font-size: 70%;
 	}
 }
 
