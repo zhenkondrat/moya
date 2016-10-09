@@ -15,7 +15,7 @@ class SiteController extends Controller
     {
         return view('pages.start')
         			->with('activepage', 0)
-        			->with('categories', App\Category::all())
+        			->with('categories', App\Category::all()->sortBy('position'))
         			->with('reklams', App\Reklam::where('enabled', 1)->limit(10)->get())
         			->with('sales', App\Sale::all());
     }
@@ -37,4 +37,14 @@ class SiteController extends Controller
         			->with('sales', App\Sale::all());
     }
 
+    public function locationPage()
+    {
+        return view('pages.mapTest');
+    }
+
+    public function salePage($id)
+    {
+        return view('pages.sale')
+                    ->with('saled', App\Sale::where('id', '=', $id)->first());
+    }
 }

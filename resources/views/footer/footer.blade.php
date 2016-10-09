@@ -21,12 +21,12 @@
 							<li><a href=""><strong>Moyareklamka.com</strong></a></li>
 							<li><a href="">Свяжитесь с нами</a></li>
 							<li><a href="">Информация о нас</a></li>
-							<li><a id="top" href="">Подать обявление</a></li>
+							<li><a href="">Подать обявление</a></li>
 						</ul>
 					</div>
 			</div>
 		</div>
-		<div class="bottom-footer">
+		<div class="bottom-footer rl">
 			<div class="bottom-line">
 				<p>Использование сайта означает ваше согласие с <a href=""><span class="rules">Правилами</span></a></p>
 				<p>Copyright by Moyareklamka.com.ua 2016. Все права защищены <span class="newway">ТОВ “Новый путь”</span></p>

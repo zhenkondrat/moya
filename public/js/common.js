@@ -19,6 +19,16 @@ $(document).ready(function() {
 		'hideOnContentClick': true
 	});
 
+	$( ".fancybox" )
+	  .mouseover(function() {
+		   $( this ).find(".slide-text").css("display","block");
+		   $( this ).find(".slide-date").css("display","block");
+	  })
+	  .mouseout(function() {
+		   $( this ).find(".slide-text").css("display","none");
+		   $( this ).find(".slide-date").css("display","none");
+	  })
+
 	//Навигация по Landing Page
 	//$(".top_mnu") - это верхняя панель со ссылками.
 	//Ссылки вида <a href="#contacts">Контакты</a>
@@ -47,19 +57,22 @@ $(document).ready(function() {
 	var owl = $(".carousel");
 	owl.owlCarousel({
 		autoPlay: 3000,
-		items : 4,		
+		items : 4,//items : 4,
+        itemsDesktopSmall : [800,3],
+        itemsTablet: [600,3],
+        itemsMobile: [480,1],
     	lazyLoad : true,
       	pagination: true,
     	stopOnHover : true
 	});
-	owl.on("mousewheel", ".owl-wrapper", function (e) {
-		if (e.deltaY > 0) {
-			owl.trigger("owl.prev");
-		} else {
-			owl.trigger("owl.next");
-		}
-		e.preventDefault();
-	});
+	// owl.on("mousewheel", ".owl-wrapper", function (e) {
+	// 	if (e.deltaY > 0) {
+	// 		owl.trigger("owl.prev");
+	// 	} else {
+	// 		owl.trigger("owl.next");
+	// 	}
+	// 	e.preventDefault();
+	// });
 	$(".next_button").click(function(){
 		owl.trigger("owl.next");
 	});

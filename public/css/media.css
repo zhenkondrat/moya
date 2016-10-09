@@ -20,6 +20,9 @@
 		/*display:none;*/
 		font-size: 80%;
 	}
+	.city{
+		display: none;
+	}
 }
 
 /* Small Devices, Tablets */
@@ -60,10 +63,14 @@
 		display: block;
 	    margin: 20px auto;	    
 	}
-	.ltl:nth-child(4n+4) {
+
+	.ltl{
+		width: 45%;
+	}
+	/*.ltl:nth-child(4n+4) {
 	    clear:left;
 	    float:left;
-	}
+	}*/
 }
 
 
@@ -75,6 +82,11 @@
 	.btn{
 		font-size: 70%;
 	}
+	.ltl{
+		width: 100%;
+		font-size: 100%;
+	}
+	
 }
 
 /* Custom, iPhone Retina */

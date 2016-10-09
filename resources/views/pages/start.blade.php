@@ -7,12 +7,15 @@
 						<div class="blocker slider">
 							<div class="h6 btn">Актуальные рекламки</div>
 							<div class="content">
-								<div class="wrapp carousel" style="margin: 0 auto; float: left;">
+								<div class="prev_button own-btn shadow"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+								<div class="wrapp carousel" style="margin: 0 auto; float: left; height:auto;">
+									
 									@foreach ($reklams as $rekl)  
-										<div class="slide item"><a class="fancybox" href="{{$rekl->image}}" ><img src="{{$rekl->image}}"></a></div>
+										<div class="slide item"><a class="fancybox" href="{{$rekl->image}}" ><div class="slide-text shadow">{{$rekl->name}}</div><img class="lazyOwl" src="{{$rekl->image}}"><div class="slide-text slide-date">До конца осталось {{$rekl->getDays()}}дней</div></a></div>
 									@endforeach
+									
 								</div>
-								
+								<div class="next_button own-btn shadow"><i class="fa fa-chevron-right"></i></div>
 							</div>
 						</div>
 					
@@ -39,10 +42,22 @@
 							<div class="content">
 								<div class="">
 									<div class="row">
-										<div class="col-sm-12 col-md-12">	
+										<div class="col-sm-12 col-md-12 categories">	
 											@foreach ($categories as $cat)  
-												<a href="#" class="white-btn btn ltl"> {{$cat->name}}</a>	
-											@endforeach
+												<a href="#" class="white-btn btn ltl ta-left darknes">
+													<div class="row">
+														<div class="col-xs-3">
+															<img src="{{$cat->image}}" >
+														</div>
+														<div class="col-xs-9">
+														 	<div class="cat-text"> {{$cat->name}} </div>
+														 </div>
+													</div>
+												</a>	
+											@endforeach											
+										</div>
+										<div class="cat-detail"> 
+											<button class="cat black-btn btn ">Все категории</button>
 										</div>
 									</div>
 								</div>
@@ -54,13 +69,16 @@
 							<div class="content">
 								<div class="">
 									<div class="row">
-										<div class="col-sm-12 col-md-12">	
+										<div class="col-sm-12 col-md-12 sales">	
 											@foreach ($sales as $sale)  
-												<div class="brand-block">
+												<div class="brand-block shadow">
 													<div class="brand-logo"><img src="{{$sale->logo}}"></div>
-													<a href=""><div class="brand-name">{{$sale->name}}</div></a>
+													<a href="{{URL::to('sale/')}}/{{$sale->id}}"><div class="brand-name">{{$sale->name}}</div></a>
 												</div>
 											@endforeach
+										</div>
+										<div class="sale-detail"> 
+											<button class="sale black-btn btn ">Все торговые сети</button>
 										</div>
 									</div>
 								</div>
@@ -86,7 +104,7 @@
 											<th>№</th>
 											<th style="width:200px;">Назва</th>
 											<th>Кінець акції</th>
-											<th>До кінця залишилось(днів)</th>
+											<th>До кінця залишилось</th>
 											{{-- <th>Активна</th> --}}
 										</thead>
 										<tbody>
@@ -108,14 +126,14 @@
 						</div>
 
 					</div>				
-					<div class="col-sm-12 col-md-3">	
+					<div class="col-xs-12 col-md-3">	
 						<div class="row">
-							<div class="col-xs-4 col-sm-6 col-md-12">
+							<div class="col-xs-6 col-md-12">
 								<div class="blocker mobil">
 									<img src="img/mobil.jpg" width="100%">
 								</div>
 							</div>
-							<div class="col-xs-4 col-sm-6 col-md-12">
+							<div class="col-xs-6 col-md-12">
 								<div class="blocker social">
 									<div class="h6 btn center">Будь в курсе</div>
 									<div class="content">
@@ -139,7 +157,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-xs-4 col-sm-12 ">
+							<div class="col-xs-hidden col-md-12 ">
 								<div class="blocker city">
 									<div class="h6 btn center">Рекламки в Украине</div>
 									<div class="content">
@@ -177,15 +195,7 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 ">
-					<div class="blocker">
-						<div class="h6 btn">Информация о <span style="color:yellow;">Моя рекламка</span></div>
-						<div class="content">
-							<div class="wrapp">
-								
-							</div>
-						</div>
-					</div>
+				<div class="col-sm-12 ">				
 
 					<div class="blocker news-block">
 						<div class="h6 btn">Новости, конкурсы, акции в торговых сетях</div>
@@ -222,9 +232,21 @@
 							            </div>
 							    </div>
 						</div>
+					</div><!-- block -->
+
+					<div class="blocker">
+						<div class="h6 btn">Информация о <span style="color:yellow;">Моя рекламка</span></div>
+						<div class="content">
+							<div class="wrapp">
+								
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>				
 	</section>
+	<div class="to-top" id="top">
+		<i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+	</div>
 @stop

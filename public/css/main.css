@@ -25,8 +25,8 @@ body input, button	{
 
 body input:focus, button:focus	{
 		-moz-box-shadow: 0 5px 0 #333; 
-	-webkit-box-shadow: 0 5px 0 #333; 
-	box-shadow: 0 5px 0 #333; 	
+		-webkit-box-shadow: 0 5px 0 #333; 
+		box-shadow: 0 5px 0 #333; 	
 }
 
 body input:focus:required:invalid,
@@ -72,6 +72,18 @@ footer{
 	outline-style: none;	
 }
 
+.rl{
+	-moz-box-shadow: 0 5px 0 red; 
+	-webkit-box-shadow: 0 5px 0 red; 
+	box-shadow: 0 5px 0 red; 
+}
+
+.shadow{
+	-moz-box-shadow: 1px 1px 1px #333; 
+	-webkit-box-shadow: 1px 1px 1px #333; 
+	box-shadow: 1px 1px 1px #333; 
+}
+
 .search>input{
 	width: 100%;
 	height: 40px;
@@ -79,11 +91,7 @@ footer{
 	margin-top: 70px;
 	padding: 0 10px;
 	color: #333;
-	border: 1px solid #333;
-
-	-moz-box-shadow: 0 5px 0 red; 
-	-webkit-box-shadow: 0 5px 0 red; 
-	box-shadow: 0 5px 0 red; 
+	border: 1px solid #333;	
 }
 
 .search { position: relative; }
@@ -118,15 +126,8 @@ footer{
 	text-align: center;
 }
 
-.ltl{
-	width: 22%;	
-	margin-right: 15px;
-}
 
-/*.ltl:nth-child(5n+6) {
-    clear:left;
-    float:left;
-}*/
+
 
 .black-btn{
 	background: #333;
@@ -153,11 +154,8 @@ footer{
 	color: #333;
 
 	border: 1px solid #333;
-
-	-moz-box-shadow: 0 5px 0 red; 
-	-webkit-box-shadow: 0 5px 0 red; 
-	box-shadow: 0 5px 0 red; 
 }
+
 
 .top-btns > div > .btn:nth-child(2) {
 	margin-left: 20px;
@@ -169,13 +167,31 @@ footer{
 	/*background: #eef;*/
 }
 
+.ltl{
+	width: 31%;	
+	/*width: auto;*/
+	margin-left: 1.15%;
+	margin-right: 1.15%;
+	/*margin-right: 2.3%; /*15px;*/*/
+	/*height: auto;*/
+	/*border:none;*/
+	/*background: transparent;*/
+	/*font-size: 90%;*/	
+}
+
+/*.ltl:nth-child(5n+6) {
+    clear:left;
+    float:left;
+}*/
+
+.darknes:hover{
+	background: #eee;
+	box-shadow: none;
+}
+
 .top-menu{
 	background: #333;
 	height: 50px;
-
-	-moz-box-shadow: 0 5px 0 red; 
-	-webkit-box-shadow: 0 5px 0 red; 
-	box-shadow: 0 5px 0 red; 
 }
 
 ul{
@@ -243,10 +259,10 @@ li.active{
 	padding-left: 20px;
 	margin: 0;
 	float: left;
-
-	-moz-box-shadow: 0 5px 0 red; 
-	-webkit-box-shadow: 0 5px 0 red; 
-	box-shadow: 0 5px 0 red; 	
+ 	
+ 	-moz-box-shadow: 1px 1px 1px #333; 
+	-webkit-box-shadow: 1px 1px 1px #333; 
+	box-shadow: 1px 1px 1px #333; 
 }
 
 .content{
@@ -281,8 +297,11 @@ li.active{
 }
 
 .checkers, .owl-pagination{
-	margin: 5px 0 0 45%;
-	float: left;
+	/*margin: 5px 0 0 45%;
+	float: left;*/
+	position: absolute;
+  left: 50%;
+  /*margin-left: -100px;*/
 }
 
 .checker, .owl-page{
@@ -344,12 +363,7 @@ footer{
 	margin-bottom: 5px;
 	border: 1px solid #000;
 
-
 	text-align: center;
-
-	-moz-box-shadow: 0 5px 0 red; 
-	-webkit-box-shadow: 0 5px 0 red; 
-	box-shadow: 0 5px 0 red;
 }
 
 /*.bottom-footer{	
@@ -404,10 +418,6 @@ footer{
 	margin: 0 10%;
 
 	border: 1px solid #333;
-
-	-moz-box-shadow: 0 5px 0 red; 
-	-webkit-box-shadow: 0 5px 0 red; 
-	box-shadow: 0 5px 0 red; 
 }
 
 .silver-btn{
@@ -419,10 +429,6 @@ footer{
 	margin: 5% 10%;
 
 	border: 1px solid #333;
-
-	-moz-box-shadow: 0 5px 0 red; 
-	-webkit-box-shadow: 0 5px 0 red; 
-	box-shadow: 0 5px 0 red; 
 }
 
 .silver-btn:hover{	
@@ -483,16 +489,16 @@ footer{
 
 .brand-block{
 	width: 150px;
-	height: 80px;
+	height: 140px;
 	background: #bbb;
 	margin: 20px 5px;
+	margin-left: .9%;
 	float: left;
 }
 
 .brand-logo>img{
 	width: 100%;
-	height: 40px;
-
+	height: 100px;
 }
 
 .brand-name{
@@ -507,21 +513,19 @@ a>.brand-name{
 	color: #333;
 
 	-webkit-transition-property: background;
-	-webkit-transition-duration: 0.5s;
+	-webkit-transition-duration: 0.3s;
 	-webkit-transition-timing-function: ease;
 	-webkit-transition-delay: 0.1s;
 
 	transition-property: background;
-	transition-duration: 0.5s;
+	transition-duration: 0.3s;
 	transition-timing-function: ease;
 	transition-delay: 0.1s;
 }
 
 .brand-name:hover{
 	background: red;
-
-
-
+	/*opacity: 0.5;*/
 }
 
 table{
@@ -579,10 +583,6 @@ form>div>input[type="text"], input[type="password"]{
 	padding: 0 10px;
 	color: #333;
 	border: 1px solid #333;
-
-	-moz-box-shadow: 0 5px 0 red; 
-	-webkit-box-shadow: 0 5px 0 red; 
-	box-shadow: 0 5px 0 red; 
 }
 
 /*input[type="submit"]*/
@@ -596,9 +596,6 @@ form>div>input[type="text"], input[type="password"]{
     color: #333;
 	
     border: 1px solid #333;
-    -moz-box-shadow: 0 5px 0 red;
-    -webkit-box-shadow: 0 5px 0 red;
-    box-shadow: 0 5px 0 red;
 }
 
 .toggleMenu {
@@ -609,4 +606,137 @@ form>div>input[type="text"], input[type="password"]{
     color: #fff;
 }
 
+.own-btn{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	background: #333;
+	opacity: .3;
+	top: 190px;
+	z-index: 4;
+}
 
+.prev_button{	
+	left: 0px;
+}
+
+.next_button{	
+	right: 0px;
+}
+
+.prev_button:hover, 
+.next_button:hover{
+	opacity: .9;
+}
+
+.own-btn>i{
+	color: #fff;
+	font-size: 30px;
+	display: block;
+	margin: 6px 10px;	 
+}
+
+.fancybox{
+	position: relative;
+}
+
+.slide-text{
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	background: #333;
+	line-height: 40px;
+	display: none;
+	text-align: center;
+	color: #fff;
+}
+
+
+.slide-date{
+	bottom: -127px;
+	font-size: .85em;
+	background: red;
+	height: 30px;	
+	line-height: 30px;
+}
+
+a  > .row > .col-xs-3 > img{
+	width: 30px;
+	margin: 3px;
+}
+
+.categories{
+	height: 150px;
+	display: block;
+	overflow: hidden;
+}
+
+.sales{
+	height: 180px;
+	display: block;
+	overflow: hidden;
+}
+
+.cat-detail{
+	width: 100%;
+	display: block;
+}
+
+.cat, .sale{
+	float: none;
+	margin: 0px auto;
+	display: block;
+	width: 31%;
+}
+
+
+
+.ta-left{
+	text-align: left;
+}
+
+.cat-text{
+	vertical-align: middle;
+	line-height: normal;
+}
+
+
+.to-top{
+	position: fixed;
+    display: none;
+    bottom: 40px;
+    right: 20px;
+    /*visibility: hidden;*/
+    opacity: 0.6;
+    font-size: 60px;
+}
+
+.to-top:hover{
+	opacity: .8;
+	color: #300000;
+};
+
+#page-preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 100500;
+}
+
+#page-preloader .spinner {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: url('/img/loading.gif') no-repeat 50% 50%;
+    margin: -16px 0 0 -16px;
+}
+
+
+h6 .btn> div{
+	margin-top: 15px;
+}
