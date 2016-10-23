@@ -19,3 +19,4 @@ Admin::menu()->label('Основные данные')->icon('fa-building')->item
 });
 
 Admin::menu(App\Category::class)->label('Категория товаров')->icon('fa-shopping-cart');
+Admin::menu(App\News::class)->label('Новости')->icon('fa-shopping-cart');

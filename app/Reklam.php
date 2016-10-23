@@ -11,6 +11,7 @@ class Reklam extends Model
 	public function shops()
    	{
         return $this->belongsToMany('App\Shop');
+        // return $this->hasMany('App\Shop');
 	}
 
     public function magazines()
@@ -56,6 +57,8 @@ class Reklam extends Model
     public function getShopsAttribute($shops)
     {
         return array_pluck($this->shops()->get()->toArray(), 'id');
+        // return $this->shops()->get();
     }
 
+   
 }

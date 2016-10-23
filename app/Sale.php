@@ -35,4 +35,9 @@ class Sale extends Model
         return $this->hasMany('App\Shop');
     }
 
+    public function news()
+    {
+        return $this->hasMany('App\News');
+    }
+
 }

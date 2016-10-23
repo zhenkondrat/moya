@@ -16,10 +16,25 @@
 // });
 
 Route::get('/', 'SiteController@startPage');
-Route::get('sales', 'SiteController@salesPage');
+Route::get('sales/{param}', 'SiteController@salesPage');
 Route::get('sale/{id}', 'SiteController@salePage');
-Route::get('reklams', 'SiteController@reklamsPage');
+Route::get('reklams/{param}', 'SiteController@reklamsPage');
+Route::get('reklam/{id}', 'SiteController@reklamPage');
 Route::get('location', 'SiteController@locationPage');
+Route::post('email', 'SiteController@add_email');
+
+Route::get('shops', 'SiteController@shopsPage');
+Route::post('shops', 'SiteController@shopsPage');
+Route::get('{city}/shops', 'SiteController@shopPage');
+
+Route::get('allnews', 'SiteController@newsPage');
+Route::get('onenews/{id}', 'SiteController@onenewsPage');
+
+Route::post('comment', 'SiteController@add_comment');
+Route::post('search', 'SiteController@super_search');
+
+
+Route::get('getjson', 'SiteController@getjson');
 
 Route::group(['middleware' => ['web']], function () {
 

@@ -19,7 +19,7 @@ class Shop extends Model
     public function setSaleAttribute($sale)
     {        
     	$saler = \App\Sale::find($sale[0]);
-        $this->sales_id=$saler->id;
+        $this->sale_id=$saler->id;
         $this->sale=$sale;
         $this->save();
     }
@@ -27,5 +27,48 @@ class Shop extends Model
     public function getSaleAttribute($sale)
     { 	
         return $this->sale()->get()->toArray();
+    }
+
+    public function getCity()
+    {
+        $begin_index=0;
+        $arr=['м', 'г', 'смт'];
+        $adress = $this->adress;
+
+        for($i=0; $i<count($arr); $i++)
+        {
+           if ( strpos($adress, $arr[$i]) > 0 )
+           {
+                $adress = substr($adress, strpos($adress, $arr[$i].'.'));
+                break;
+           }
+        }
+
+        $adress = substr($adress, 0, strpos($adress, ' ')-1 );
+
+        return $adress;
+    }
+
+    public function getFormatedPhone()
+    {
+        $phone = $this->phone;
+        $count = strlen($phone);
+        switch ($count) {
+            case 9:
+                return $phone;
+                break;
+            case 10:
+                return '+38('.substr($phone,0,3).')'.substr($phone,3,3).'-'.substr($phone,6,2).'-'.substr($phone,8,2);
+                break;
+            case 11:
+                return '+38('.substr($phone,1,3).')'.substr($phone,4,3).'-'.substr($phone,7,2).'-'.substr($phone,9,2);
+                break;
+            case 11:
+                return '+38('.substr($phone,2,3).')'.substr($phone,5,3).'-'.substr($phone,8,2).'-'.substr($phone,10,2);
+                break;
+            default:
+                return $phone;
+                break;
+        }
     }
 }

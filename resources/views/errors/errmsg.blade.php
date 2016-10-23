@@ -7,12 +7,22 @@
         @else
             Пожалуйста проверьте правильность заполнения формы
         @endif
+        <script>
+            $(document).ready(function(){
+                swal("Ошибка!", "Ваше действие не произведено!", "error");
+            });
+        </script>
     </div>
 @endif
  
 @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-minus-square"></i></button>
-        <strong>Success</strong> {{ $message }}
+        {{-- <button type="button" class="close" data-dismiss="alert"><i class="fa fa-minus-square"></i></button> --}}
+        <strong>Готово</strong> {{ $message }}
+        <script>
+            $(document).ready(function(){
+                swal("Готово!", "Ваше действие успешно произведено!", "success");
+            });
+        </script>
     </div>
 @endif

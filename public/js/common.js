@@ -23,10 +23,12 @@ $(document).ready(function() {
 	  .mouseover(function() {
 		   $( this ).find(".slide-text").css("display","block");
 		   $( this ).find(".slide-date").css("display","block");
+		   $( this ).find(".lazyOwl").css("opacity",".5");
 	  })
 	  .mouseout(function() {
 		   $( this ).find(".slide-text").css("display","none");
 		   $( this ).find(".slide-date").css("display","none");
+		   $( this ).find(".lazyOwl").css("opacity","1");
 	  })
 
 	//Навигация по Landing Page

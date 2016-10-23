@@ -67,10 +67,16 @@
 	.ltl{
 		width: 45%;
 	}
-	/*.ltl:nth-child(4n+4) {
-	    clear:left;
-	    float:left;
-	}*/
+	.news{
+		height: 300px;
+	}
+
+	.news>div:nth-child(2)>h3{
+		font-size: 80%;
+	} 
+	.teaser{
+		display: none;
+	}
 }
 
 

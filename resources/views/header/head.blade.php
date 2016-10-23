@@ -14,7 +14,6 @@
 	<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
 	<link rel="stylesheet" href="{{ URL::asset('css/media.css') }}" />
 
-
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
 
@@ -22,7 +21,21 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css" />
 	<script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
- 	
+
+	<link rel="stylesheet" href="{{ URL::asset('css/MarkerCluster.css') }}" />
+	<link rel="stylesheet" href="{{ URL::asset('css/MarkerCluster.Default.css') }}" />
+	<script src="{{ URL::asset('js/MarkerCluster.js') }}"></script> 
+	<script src="{{ URL::asset('js/MarkerClusterGroup.js') }}"></script> 
+	<script src="{{ URL::asset('js/DistanceGrid.js') }}"></script> 
+	<script src="{{ URL::asset('js/MarkerCluster.QuickHull.js') }}"></script> 
+	<script src="{{ URL::asset('js/MarkerCluster.Spiderfier.js') }}"></script> 
+	<script src="{{ URL::asset('js/MarkerClusterGroup.Refresh.js') }}"></script> 
+	<script src="{{ URL::asset('js/MarkerOpacity.js') }}"></script> 
+
  	
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+ 	
 	<script src="{{ URL::asset('js/menu.js') }}" type="text/javascript"></script> 
+
+	<script src="{{ URL::asset('js/sweetalert.min.js') }}"></script> 
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/sweetalert.css') }}">

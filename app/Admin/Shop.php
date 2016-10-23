@@ -20,9 +20,12 @@ Admin::model('App\Shop')->title('Магазин')->display(function ()
 		FormItem::text('name', 'name'),
 		FormItem::text('adress', 'adress'),
 		FormItem::ckeditor('work_graph', 'work_graph'),
-		FormItem::text('phone', 'phone'),
+		FormItem::text('phone', 'phone')->defaultValue('0971234567'),
 		FormItem::checkbox('enabled', 'enabled'),
-		FormItem::select('sales_id', 'Права доступа')->model('App\Sale')->display('name'),
+		FormItem::select('sale_id', 'Права доступа')->model('App\Sale')->display('name'),
+		FormItem::text('lat', 'lat')->readonly(true),
+		FormItem::text('lng', 'lng')->readonly(true),
+		FormItem::view('widgets._form_map')
 	]);
 	return $form;
 });

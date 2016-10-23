@@ -68,6 +68,9 @@ class AuthController extends Controller
             $remember = (bool) $request->remember;
             if (Sentinel::authenticate($request->all(), $remember))
             {
+                $user = Sentinel::findByCredentials($request->all());                  
+                session(['user_id' => $user->id]);
+                
                 return Redirect::intended('/');
             }
             $errors = 'Неправильный логин или пароль.';
@@ -270,7 +273,8 @@ class AuthController extends Controller
      * @return mixed
      */
     public function logoutuser()
-    {
+    {   
+        \Session::forget('user_id');
         Sentinel::logout();
         return Redirect::intended('/');
     }
@@ -278,6 +282,7 @@ class AuthController extends Controller
 
 public function getLogout()
     {
+
         Sentinel::logout();
         return Redirect::intended('/');
     }

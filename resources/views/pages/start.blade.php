@@ -11,9 +11,8 @@
 								<div class="wrapp carousel" style="margin: 0 auto; float: left; height:auto;">
 									
 									@foreach ($reklams as $rekl)  
-										<div class="slide item"><a class="fancybox" href="{{$rekl->image}}" ><div class="slide-text shadow">{{$rekl->name}}</div><img class="lazyOwl" src="{{$rekl->image}}"><div class="slide-text slide-date">До конца осталось {{$rekl->getDays()}}дней</div></a></div>
+										<div class="slide item"><a class="fancybox" href="{{URL::to('reklam')}}/{{$rekl->id}}" ><div class="slide-text shadow">{{$rekl->name}}</div><img class="lazyOwl" src="{{$rekl->image}}"><div class="slide-text slide-date"> До конца осталось {{$rekl->getDays()}}дней</div></a></div>
 									@endforeach
-									
 								</div>
 								<div class="next_button own-btn shadow"><i class="fa fa-chevron-right"></i></div>
 							</div>
@@ -86,15 +85,15 @@
 							</div>
 						</div>
 
-						<div class="blocker">
+						{{-- <div class="blocker">
 							<div class="h6 btn">Торговые центры</div>
 							<div class="content">
 								<div class="wrapp">
 									<div class="locate"></div>
 								</div>
 							</div>
-						</div>
-
+						</div> --}}
+						
 						<div class="blocker">
 							<div class="h6 btn">Рекламки</div>
 							<div class="content">
@@ -147,11 +146,13 @@
 											<div class="divider"></div>
 											<p> Подписка на  разсылку:</p>
 											<div>
-												<form class="sennder">
-													<input type="text" class="email" placeholder="Введите">
+												{{Form::open(array('action' => 'SiteController@add_email'))}}
+													{{Form::email('email', $value = null, $attributes = array('class'=>'email', 'placeholder' => 'Введите'))}}
 													<input type="submit" value="Подписатся" class="silver-btn ">
-													<input type="checkbox" class="checkbox"> Соглашаюсь с условиями	
-												</form>
+													{{Form::checkbox('checkbox', null , false, $attributes = array('class'=>'checkbox'))}}
+													{{Form::label('lbl', 'Соглашаюсь с условиями', $attr = array('class' => 'condition', ))}}
+													
+												{{ Form::close() }}
 											</div>
 										</div>
 									</div>
@@ -163,90 +164,77 @@
 									<div class="content">
 										<!-- <div class="wrapp"> -->
 											<ul class="cities">
-												<li><a href="#">Київ</a></li>
-												<li><a href="#">Львів</a></li>
-												<li><a href="#">Одеса</a></li>
-												<li><a href="#">Харків</a></li>
-												<li><a href="#">Донецьк</a></li>
-												<li><a href="#">Дніпро</a></li>
-												<li><a href="#">Вінниця</a></li>
-												<li><a href="#">Хмельницький</a></li>
-												<li><a href="#">Херсон</a></li>
-												<li><a href="#">Запоріжжя</a></li>
+												<li><a href="{{URL::to('/')}}/Київ/shops">Київ</a></li>
+												<li><a href="{{URL::to('/')}}/Львів/shops">Львів</a></li>
+												<li><a href="{{URL::to('/')}}/Одеса/shops">Одеса</a></li>
+												<li><a href="{{URL::to('/')}}/Харків/shops">Харків</a></li>
+												<li><a href="{{URL::to('/')}}/Донецьк/shops">Донецьк</a></li>
+												<li><a href="{{URL::to('/')}}/Дніпро/shops">Дніпро</a></li>
+												<li><a href="{{URL::to('/')}}/Вінниця/shops">Вінниця</a></li>
+												<li><a href="{{URL::to('/')}}/Хмельницький/shops">Хмельницький</a></li>
+												<li><a href="{{URL::to('/')}}/Херсон/shops">Херсон</a></li>
+												<li><a href="{{URL::to('/')}}/Запоріжжя/shops">Запоріжжя</a></li>
 											</ul>
-											<a class="see-all-city" href="#">Посмотреть все ></a>
+											<a class="see-all-city" href="{{URL::to('/shops')}}">Посмотреть все ></a>
 										<!-- </div> -->
 									</div>
 								</div>
 							</div>
-						<!-- <div class="blocker">
-							<div class="h6 btn">header</div>
-							<div class="content">
-								<div class="wrapp">
-									
-								</div>
-							</div>
-						</div> -->
 					</div>				
 				</div>
 		</div>
 	</section>
-
+	<?php 
+		function truncate($text, $length) {
+		   $length = abs((int)$length);
+		   if(strlen($text) > $length) {
+		      $text = preg_replace("/^(.{1,$length})(\s.*|$)/s", '\\1...', $text);
+		   }
+		   return($text);
+		}
+	?>	
 	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 ">				
 
 					<div class="blocker news-block">
-						<div class="h6 btn">Новости, конкурсы, акции в торговых сетях</div>
+						<div class="h6 btn"><a href="{{URL::to('allnews')}}">Новости, конкурсы, акции в торговых сетях</a></div>
 						<div class="content">
-								<div class="row news">
+							@foreach ($news as $one_news)  
+								<div class="row news shadows">
 							            <div class="col-sm-6 col-md-4">
-							                <a class="fancybox" 
-							                 href="images/kodberri.gif">
-							                    <img src="images/kodberri.gif" alt="Wyjazdy wakacyjne – jak się na nie przygotować?" class="image">
+							                <a class="fancybox" href="{{URL::to('/')}}/{{$one_news->image}}">
+							                    <div class="img-box shadows"><img src="{{URL::to('/')}}/{{$one_news->image}}" alt="aaaaaaaaaaaaaaaaa" class="image"></div>
 							                </a>
 							            </div>
 							            <div class="col-sm-6 col-md-8">
-							                <h3><a href="http://www.promoceny.pl/centra-handlowe/artykul/wyjazdy-wakacyjne-jak-sie-na-nie-przygotowac/">Wyjazdy wakacyjne – jak się na nie przygotować?</a></h3>
+							                <h3><a href="{{URL::to('/onenews')}}/{{$one_news->id}}">{{$one_news->header}}</a></h3>
 							                <div class="teaser">
-							                    Wyjeżdżamy na wakacje by odpocząć od znanych nam miejsc, odetchnąć świeżym powietrzem, zobaczyć coś nowego. Często taka wycieczka jest jedynym wolnym czasem w ciągu roku, więc planujemy ją tygodnie przed terminem. Chcemy dopiąć wszystko na ostatni guzik, więc nie zapominajmy, że sama podróż też wymaga spakowania kilku rzeczy.
-							                    <a title="Wyjazdy wakacyjne – jak się na nie przygotować?" href="http://www.promoceny.pl/centra-handlowe/artykul/wyjazdy-wakacyjne-jak-sie-na-nie-przygotowac/">więcej</a>
+							                    {!!truncate($one_news->text, 620)!!} <a href="{{URL::to('/onenews')}}/{{$one_news->id}}">Подробнее -></a>
 							                </div>
 							            </div>
-							    </div>
-
-							    <div class="row news">
-							            <div class="col-sm-12 col-md-4">
-							                <a class="fancybox" 
-							                 href="images/kodberri.gif">
-							                    <img src="images/kodberri.gif" alt="Wyjazdy wakacyjne – jak się na nie przygotować?" class="image">
-							                </a>
-							            </div>
-							            <div class="col-sm-12 col-md-8">
-							                <h3><a href="http://www.promoceny.pl/centra-handlowe/artykul/wyjazdy-wakacyjne-jak-sie-na-nie-przygotowac/">Wyjazdy wakacyjne – jak się na nie przygotować?</a></h3>
-							                <div class="teaser">
-							                    Wyjeżdżamy na wakacje by odpocząć od znanych nam miejsc, odetchnąć świeżym powietrzem, zobaczyć coś nowego. Często taka wycieczka jest jedynym wolnym czasem w ciągu roku, więc planujemy ją tygodnie przed terminem. Chcemy dopiąć wszystko na ostatni guzik, więc nie zapominajmy, że sama podróż też wymaga spakowania kilku rzeczy.
-							                    <a title="Wyjazdy wakacyjne – jak się na nie przygotować?" href="http://www.promoceny.pl/centra-handlowe/artykul/wyjazdy-wakacyjne-jak-sie-na-nie-przygotowac/">więcej</a>
-							                </div>
-							            </div>
-							    </div>
+							    </div>				
+							@endforeach
+							<div class="news-all"> 
+								<a href="{{URL::to('allnews')}}" class="sale black-btn btn ">Все новости</a>
+							</div>	
 						</div>
+						
 					</div><!-- block -->
 
 					<div class="blocker">
 						<div class="h6 btn">Информация о <span style="color:yellow;">Моя рекламка</span></div>
 						<div class="content">
 							<div class="wrapp">
-								
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>				
+		</div>		
+
 	</section>
-	<div class="to-top" id="top">
-		<i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
-	</div>
+	
 @stop

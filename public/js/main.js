@@ -22,6 +22,15 @@ $(document).ready(function() {
 	     	$("#top").css("display","none");
 	});
 
+	$( ".fancybox" )
+	  .mouseover(function() {
+		 $( this ).find(".slide-text-r").css("display","none");
+		 $( this ).find(".slide-date-r").css("display","none");  
+	  })
+	  .mouseout(function() {		   
+		   $( this ).find(".slide-text-r").css("display","block");
+		   $( this ).find(".slide-date-r").css("display","block");
+	  })
 
 	$(window).on('load', function () {
 	    var $preloader = $('#page-preloader'),
@@ -30,5 +39,28 @@ $(document).ready(function() {
 	    $preloader.delay(350).fadeOut('slow');
 	});
 
+	setTimeout(function() {
+    	$('.alert').fadeOut(500);
+	}, 5000); 
+
+	$(".condition").click(function() {
+		swal({   
+			title: "Условия!",   
+			text: "информация пока отсутствует",   
+			html: true 
+		});
+	});
+
+	$(".rules").click(function() {
+		swal({   
+			title: "Условия!",   
+			text: "информация пока отсутствует",   
+			html: true 
+		});
+	});
+
 });
+
+
+
 
