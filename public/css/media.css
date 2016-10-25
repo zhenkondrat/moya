@@ -23,6 +23,12 @@
 	.city{
 		display: none;
 	}
+	.teaser-sale{
+		margin-top: -80px;
+	}
+	.halfw{
+		width: 100%;
+	}
 }
 
 /* Small Devices, Tablets */
@@ -65,7 +71,7 @@
 	}
 
 	.ltl{
-		width: 45%;
+		width: 47.7%;
 	}
 	.news{
 		height: 300px;
@@ -76,6 +82,9 @@
 	} 
 	.teaser{
 		display: none;
+	}	
+	.teaser-sale{
+		margin-top: 0px;
 	}
 }
 

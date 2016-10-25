@@ -160,6 +160,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Chencha\Share\ShareServiceProvider::class,
+        //Fbf\LaravelContactForm\LaravelContactFormServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +228,8 @@ return [
         'ModelItem'     => SleepingOwl\Admin\Models\ModelItem::class,
 
         'Image' => Intervention\Image\Facades\Image::class,
+
+        'Share' => Chencha\Share\ShareFacade::class,
 
     ],
 

@@ -1,7 +1,21 @@
 @extends('layouts.master')
 @section('body')
     <section class="map">
-
+        <div id="sidebar">
+          <h2>header text</h2>
+          <div class="comment-text">
+          <i class="fa fa-fw fa-star"></i>
+          </div>
+          <div class="comment-text">
+          <i class="fa fa-fw fa-star"></i>
+          </div>
+          <div class="comment-text">
+          <i class="fa fa-fw fa-star"></i>
+          </div>
+          <div class="comment-text">
+          <i class="fa fa-fw fa-star"></i>
+          </div>
+        </div>
         <div id="map" style="height: 600px"></div>
 
             <script>
@@ -26,8 +40,16 @@
                 }).addTo(map);
 
                 */
-
-
+        var sidebar = L.control.sidebar('sidebar', {
+            closeButton: false,
+            position: 'left'
+        });
+        //
+        map.addControl(sidebar);
+        sidebar.show();
+        // setTimeout(function () {
+        //     sidebar.show();
+        // }, 500);
 
 var markerCluster = new L.MarkerClusterGroup({
   maxClusterRadius: 60,

@@ -15,6 +15,11 @@
 //     return view('welcome');
 // });
 
+Route::get('/vk', function()
+{
+    return Share::load('http://reklamka.dev', 'Моя рекламка')->vk();
+});
+
 Route::get('/', 'SiteController@startPage');
 Route::get('sales/{param}', 'SiteController@salesPage');
 Route::get('sale/{id}', 'SiteController@salePage');
@@ -31,6 +36,7 @@ Route::get('allnews', 'SiteController@newsPage');
 Route::get('onenews/{id}', 'SiteController@onenewsPage');
 
 Route::post('comment', 'SiteController@add_comment');
+Route::post('respond', 'SiteController@add_respond');
 Route::post('search', 'SiteController@super_search');
 
 

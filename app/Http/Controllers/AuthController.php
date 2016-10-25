@@ -26,6 +26,7 @@ class AuthController extends Controller
      */
     public function login()
     {
+        session(['back_url' => \URL::previous()]);
         return view('auth.login');
     }
 
@@ -59,6 +60,9 @@ class AuthController extends Controller
      */
     public function loginProcess(Request $request)
     {
+        $url =\Session::get('back_url');
+        \Session::forget('back_url');
+        
         try
         {
             $this->validate($request, [
@@ -71,7 +75,7 @@ class AuthController extends Controller
                 $user = Sentinel::findByCredentials($request->all());                  
                 session(['user_id' => $user->id]);
                 
-                return Redirect::intended('/');
+                return  Redirect::to($url);
             }
             $errors = 'Неправильный логин или пароль.';
             return Redirect::back()
@@ -276,7 +280,7 @@ class AuthController extends Controller
     {   
         \Session::forget('user_id');
         Sentinel::logout();
-        return Redirect::intended('/');
+        return Redirect::back();
     }
 
 

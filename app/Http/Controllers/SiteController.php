@@ -97,9 +97,12 @@ class SiteController extends Controller
     public function salePage($id)
     {
         $news = App\News::where('sale_id', $id)->get();
+        $collection = App\Respond::orderBy('created_at', 'desc');
         
         return view('pages.sale')
-                    ->with('news', $news)
+                    ->with('news', collect($news))
+                    ->with('responds',  $collection->paginate(8))//----
+                    ->with('categories', App\Category::all())
                     ->with('saled', App\Sale::where('id', '=', $id)->first());
     }
 
@@ -182,7 +185,6 @@ class SiteController extends Controller
             return Redirect::back();
     }
 
-
     public function super_search(Request $request)
     {
         $data = Input::get('search');        
@@ -216,7 +218,16 @@ class SiteController extends Controller
                     ->with('reklams', $res);
         }
 
-        return 'No result';
-        
+        return 'No result';        
+    }
+
+    public function add_respond(Request $request)
+    {       
+            $text = Input::get('text');
+            $news_id = Input::get('news_id');
+            $reit = Input::get('reiting');
+
+            App\Respond::add([$text, $news_id, $reit]);
+            return Redirect::back();
     }
 }

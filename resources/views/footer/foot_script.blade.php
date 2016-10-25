@@ -17,7 +17,7 @@
 	<script src="{{ URL::asset('js/common.js') }}"></script>
 	<!--<script src="js/main.js"></script>-->
 	<script src="{{ URL::asset('js/main.js') }}" type="text/javascript"></script> 
-
+	
 <script type="text/javascript" src="{{ URL::asset('js/MicroSlider.js') }}"></script> 
 <script type="text/javascript">
 $(function(){

@@ -24,6 +24,10 @@
 
 	<link rel="stylesheet" href="{{ URL::asset('css/MarkerCluster.css') }}" />
 	<link rel="stylesheet" href="{{ URL::asset('css/MarkerCluster.Default.css') }}" />
+
+	<link rel="stylesheet" href="{{ URL::asset('css/L.Control.Sidebar.css') }}" />
+	<script src="{{ URL::asset('js/L.Control.Sidebar.js') }}"></script>{{-- --}}
+
 	<script src="{{ URL::asset('js/MarkerCluster.js') }}"></script> 
 	<script src="{{ URL::asset('js/MarkerClusterGroup.js') }}"></script> 
 	<script src="{{ URL::asset('js/DistanceGrid.js') }}"></script> 

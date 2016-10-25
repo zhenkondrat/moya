@@ -204,6 +204,10 @@ footer{
 	width: 100%;
 	margin-top: 5px;
 }
+.halfw{
+	width: 47.7%;
+	margin-top: 5px;
+}
 
 .top-menu{
 	background: #333;
@@ -609,6 +613,7 @@ th{
 
 	/*border: 1px solid #333;*/
 	background: #fff;
+    display: inline-block;
 }
 
 .img-box{
@@ -1060,7 +1065,7 @@ z-index: 2;
 	border: 2px solid #0d3;
 }
 
-.alert-danger{
+.alert-danger{<div class="col-sm-12">…</div>
 	color: #d30;
 	border: 2px solid #d30;
 }
@@ -1084,9 +1089,21 @@ z-index: 2;
 
 .teaser-sale{
 	font-size: 1em;
-	position: absolute;
+	/*position: absolute;*/
 	bottom: 0;
-	width: 90%;
+	width: 100%;
 	background: #ddd;
 	padding: 10px;
+	margin-top: -60px;
+}
+
+.stars-edit{
+	margin: 0 10%;
+	font-size: 20px;
+
+}
+
+.stars-edit>i{
+	color: #600;
+	width: 30px;
 }
