@@ -230,4 +230,9 @@ class SiteController extends Controller
             App\Respond::add([$text, $news_id, $reit]);
             return Redirect::back();
     }
+
+
+    public function show_sale(Request $request){
+        return Redirect::back();    
+    }
 }

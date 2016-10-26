@@ -19,7 +19,8 @@
         "laravelcollective/html": "5.2.*",
         "intervention/image": "^2.3",
         "intervention/imagecache": "^2.3",
-        "chencha/share": "^5.2"
+        "chencha/share": "^5.2",
+        "anhskohbo/no-captcha": "2.*"
         //"fbf/laravel-contact-form": "dev-master"
     },
     "require-dev": {

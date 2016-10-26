@@ -17,7 +17,15 @@
 
 Route::get('/vk', function()
 {
-    return Share::load('http://reklamka.dev', 'Моя рекламка')->vk();
+    return Redirect::to( Share::load('http://reklamka.dev', 'Моя рекламка')->vk() );
+});
+Route::get('/gplus', function()
+{
+    return Redirect::to( Share::load('http://reklamka.dev', 'Моя рекламка')->gplus() );
+});
+Route::get('/fb', function()
+{
+    return Redirect::to( Share::load('http://reklamka.dev', 'Моя рекламка')->facebook() );
 });
 
 Route::get('/', 'SiteController@startPage');
@@ -39,6 +47,7 @@ Route::post('comment', 'SiteController@add_comment');
 Route::post('respond', 'SiteController@add_respond');
 Route::post('search', 'SiteController@super_search');
 
+Route::post('show_sale', 'SiteController@show_sale');
 
 Route::get('getjson', 'SiteController@getjson');
 

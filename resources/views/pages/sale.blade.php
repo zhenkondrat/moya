@@ -16,27 +16,45 @@
 						$last_numb = $last_numb*10;
 						$last_numb = floor($last_numb);//десятки 
 					?>
-					<div class="col-xs-12 col-md-6">
-						<div class="">
-							<span style="">Оценка сети: </span>
-						 	@for ($i = 1; $i <= $numb; $i++)
-								<i class="fa fa-fw fa-star"></i>
-							@endfor
-								
-								@if($last_numb>8)
-									<i class="fa fa-fw fa-star"></i>
-									<?php $i++?>
-								@else
-									@if($last_numb>3)
-										<i class="fa fa-fw fa-star-half-o"></i>
-										<?php $i++?>
-									@endif
-								@endif
+					<div class="col-xs-12 col-md-9">
+						<div class="row">				
+							<div class="col-xs-6 col-md-4">
+								<span style="">Оценка сети: {{substr($raitavg, 0 , 3)}}</span>
+								<div class="stars">
+								 	@for ($i = 1; $i <= $numb; $i++)
+										<i class="fa fa-fw fa-star"></i>
+									@endfor
+										
+										@if($last_numb>8)
+											<i class="fa fa-fw fa-star"></i>
+											<?php $i++?>
+										@else
+											@if($last_numb>3)
+												<i class="fa fa-fw fa-star-half-o"></i>
+												<?php $i++?>
+											@endif
+										@endif
 
-							@for (; $i <= 5; $i++)
-								<i class="fa fa-fw fa-star-o"></i>
-							@endfor  
-						</div>
+									@for (; $i <= 5; $i++)
+										<i class="fa fa-fw fa-star-o"></i>
+									@endfor  
+								</div>
+								<p>{{App\Respond::count()}} голосов</p>
+							</div>
+							<div class="col-xs-6 col-md-4">
+								<span style="">Поделится: </span>
+								<div class="social-share">
+									<a href="{{URL::to('vk')}}"><i class="fa fa-vk" aria-hidden="true"></i></a> 
+									<a href="{{URL::to('gplus')}}"><i class="fa fa-google-plus" aria-hidden="true"></i></a> 
+									<a href="{{URL::to('fb')}}"><i class="fa fa-facebook-official" aria-hidden="true"></i></a> 
+								</div>
+							</div>
+							<div class="col-xs-6 col-md-4">
+								
+								<a href="{{ action('SiteController@show_sale', 5 ) }}"><div class="show_map"><i class="fa fa-map-marker" aria-hidden="true"></i></div>Показать магазины на карте</a> 
+								
+							</div>
+						</div>	
 					</div>
 				</div>				
 				@if (count($saled->shops)>0)			

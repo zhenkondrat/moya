@@ -3,6 +3,15 @@
 	<meta name="description" content="" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+	{{-- <meta property="og:url" content="https://lidl.okazjum.pl/warszawa/">
+	<meta property="og:title" content="Lidl Warszawa • Gazetka, Oferta, Promocje • Okazjum.pl">
+	<meta property="og:description" content="Sprawdź najnowsze gazetki promocyjne z sieci Lidl - Warszawa. Poznaj obowiązujące promocje i wyprzedaże.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://static.okazjum.pl/storage/okazjum/assets/okazjum-square-9d7fc0459fa69f0d46f5b8c4d43ce05c80d3a3448fbc6c3dd37fff17b38db7e5.jpg"> --}}
+
+
 	<link rel="shortcut icon" href="favicon.png" />
 	<link rel="stylesheet" href="{{ URL::asset('libs/bootstrap/bootstrap-grid-3.3.1.min.css') }}" />
 	<link rel="stylesheet" href="{{ URL::asset('libs/font-awesome-4.2.0/css/font-awesome.min.css') }}" />
