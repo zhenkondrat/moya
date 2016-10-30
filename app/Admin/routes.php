@@ -4,7 +4,7 @@ Route::get('', [
 	'as' => 'admin.home',
 	function ()
 	{
-		$content = 'Define your dashboard here.';
-		return Admin::view($content, 'Dashboard');
+		$content = 'Здесь Вы можете добавлять данные на сайт';
+		return Admin::view($content, 'Админ панель');
 	}
 ]);

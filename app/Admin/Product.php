@@ -5,7 +5,7 @@
  * For full list see documentation.
  */
 
-Admin::model('App\Product')->title('Tovar')->display(function ()
+Admin::model('App\Product')->title('Продукт')->display(function ()
 {
 	$display = AdminDisplay::datatables();
 	 $display->with();
@@ -13,22 +13,22 @@ Admin::model('App\Product')->title('Tovar')->display(function ()
 
 	 ]);
 	$display->columns([
-		Column::string('name')->label('name'),
-		Column::image('image'),
-		Column::string('reklam.name')->label('adress'),
-		Column::string('category.name')->label('adress2'),
+		Column::string('name')->label('Название'),
+		Column::image('image')->label('Картинка'),
+		Column::string('reklam.name')->label('Рекламка'),
+		Column::string('category.name')->label('Категория'),
 	]);
 	return $display;
 })->createAndEdit(function ()
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('name', 'name'),
-		FormItem::image('image', 'Image'),
-		FormItem::ckeditor('about', 'about'),
-		FormItem::text('price', 'name'),
-		FormItem::select('reklam_id', 'Права доступа')->model('App\Reklam')->display('name'),
-		FormItem::select('category_id', 'Kateg')->model('App\Category')->display('name'),
+		FormItem::text('name', 'Название'),
+		FormItem::image('image', 'Картинка'),
+		FormItem::ckeditor('about', 'О продукте'),
+		FormItem::text('price', 'Цена'),
+		FormItem::select('reklam_id', 'Рекламка')->model('App\Reklam')->display('name'),
+		FormItem::select('category_id', 'Категория')->model('App\Category')->display('name'),
 	]);
 	return $form;
 });

@@ -11,7 +11,7 @@
 			slider:'#id-xm-slider',				//滑动ID
 			speed:350,							//轮转速度
 			pace:3000,							//频率
-			width:960
+			width:475
 		};
 		def = $.extend({},def,opt);
 		var num = $(def.content).find('li').length;

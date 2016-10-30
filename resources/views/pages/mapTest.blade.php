@@ -1,7 +1,17 @@
 @extends('layouts.master')
 @section('body')
     <section class="map">
-
+        <div id="sidebar">
+          <h2>header text</h2>
+          @foreach ($json as $shop)   
+            <div class="comment-text">
+              <img src="{{ URL::to('/')}}/{{$shop->sale[0]['logo']}}" width="50" height="50">
+              {{$shop->sale[0]['name']}}
+              {{$shop->adress}}
+              {{strip_tags(ucfirst(trans($shop->work_graph)))}}
+            </div>
+          @endforeach
+        </div>
         <div id="map" style="height: 600px"></div>
 
             <script>
@@ -26,8 +36,16 @@
                 }).addTo(map);
 
                 */
-
-
+        var sidebar = L.control.sidebar('sidebar', {
+            closeButton: false,
+            position: 'left'
+        });
+        //
+        map.addControl(sidebar);
+        sidebar.show();
+        // setTimeout(function () {
+        //     sidebar.show();
+        // }, 500);
 
 var markerCluster = new L.MarkerClusterGroup({
   maxClusterRadius: 60,
@@ -38,17 +56,35 @@ var markerCluster = new L.MarkerClusterGroup({
 
 var collect  = <?php echo json_encode($json, JSON_FORCE_OBJECT) ?>;
 //load data from controller
+var j=0;
               for (var i in collect) {
+                var index = (j).toString();
+                var tmp ='<?php $x = "'+index+'"; ?>' ;//
+                var x = '<img class="my-div-image" src="<?php echo URL::to("/")."/".$json[intval($x)]->sale[0]["logo"]; ?>" width="50" height="50"/>';
+                
                 var marker = L.marker(
                               L.latLng(collect[i].lat, collect[i].lng), {
                                 title: collect[i].adress
                               }
+                              //   ,
+                              //   icon: new L.DivIcon({
+                              //                           className: 'my-div-icon',
+                              //                           html: x
+                              //                       })
+                              // }
                             );
                   marker.bindPopup("<b>" + collect[i].adress + "</b>").openPopup();
                   //marker.addTo(map);
                   markerCluster.addLayer(marker);
+                  j++;
               }
-
+// L.Marker([57.666667, -2.64], {
+//     icon: new L.DivIcon({
+//         className: 'my-div-icon',
+//         html: '<img class="my-div-image" src="http://png-3.vector.me/files/images/4/0/402272/aiga_air_transportation_bg_thumb"/>'+
+//               '<span class="my-div-span">RAF Banff Airfield</span>'
+//     })
+// });
   map.addLayer(markerCluster);
 // markerCluster.addTo(map);
 
@@ -64,7 +100,7 @@ var collect  = <?php echo json_encode($json, JSON_FORCE_OBJECT) ?>;
 var lc = L.control.locate().addTo(map);
 
 // request location update and set location
-lc.start();
+//lc.start();
 
                   //    var marker = L.marker(
                   //             L.latLng(47.23, 38.02), {

@@ -3,7 +3,7 @@
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
 	.top{
-		background: #11d;
+		/*background: #11d;*/
 	}
 	.search{
 		margin-left: 4%;
@@ -14,7 +14,7 @@
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
 	.top{
-		background: #bbb;
+		/*background: #bbb;*/
 	}
 	.main-menu>li>a{
 		/*display:none;*/
@@ -23,12 +23,18 @@
 	.city{
 		display: none;
 	}
+	.teaser-sale{
+		margin-top: -80px;
+	}
+	.halfw{
+		width: 100%;
+	}
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {	
 	.top{
-		background: #999;
+		/*background: #999;*/
 	}
 	.top-menu{
 		height: auto;
@@ -65,7 +71,7 @@
 	}
 
 	.ltl{
-		width: 45%;
+		width: 47.7%;
 	}
 	.news{
 		height: 300px;
@@ -76,6 +82,19 @@
 	} 
 	.teaser{
 		display: none;
+	}	
+	.teaser-sale{
+		margin-top: 0px;
+	}
+	.row.product{
+		height: 400px;
+	}
+	.row.product>div{
+		height: 50%;
+	}
+
+	.row.product>div>img{
+		/*height: 50%;*/
 	}
 }
 
@@ -83,7 +102,7 @@
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
 	.top{
-		background: #666;
+		/*background: #666;*/
 	}
 	.btn{
 		font-size: 70%;
@@ -98,7 +117,7 @@
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px) {
 	.top{
-		background: #111;
+		/*background: #111;*/
 	}
 	.btn{
 		content: '';

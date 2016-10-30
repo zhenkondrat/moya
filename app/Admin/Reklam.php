@@ -14,21 +14,21 @@ Admin::model('App\Reklam')->title('Рекламка')->display(function ()
 	 ]);
 	// $display = AdminDisplay::table();
 	$display->columns([
-		Column::string('name')->label('name'),
-		Column::image('image'),
+		Column::string('name')->label('Название'),
+		Column::image('image')->label('Картинка'),
 	]);
 	return $display;
 })->createAndEdit(function ()
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('name', 'name'),
-		FormItem::image('image', 'Image'),
-		FormItem::ckeditor('about', 'about'),
-		FormItem::date('begin', 'Date'),
-		FormItem::date('end', 'Date'),
+		FormItem::text('name', 'Название'),
+		FormItem::image('image', 'Картинка'),
+		FormItem::ckeditor('about', 'О рекламке'),
+		FormItem::date('begin', 'Дата начала'),
+		FormItem::date('end', 'Дата конца'),
 		FormItem::multiselect('shops', 'Магазины')->model('App\Shop')->display('name'),
-		FormItem::checkbox('enabled', 'enabled'),
+		FormItem::checkbox('enabled', 'Доступность'),
 		// FormItem::select('sales_id', 'Права доступа')->model('App\Sale')->display('name'),
 	]);
 	return $form;

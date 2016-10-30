@@ -13,21 +13,21 @@ Admin::model('App\News')->title('Новина')->display(function ()
 
 	 ]);
 	$display->columns([
-		Column::string('header')->label('header'),
-		Column::image('image'),
-		Column::string('sale.name')->label('adress'),
+		Column::string('header')->label('Заглавие'),
+		Column::image('image')->label('Картинка'),
+		Column::string('sale.name')->label('Торговая сеть'),
 	]);
 	return $display;
 })->createAndEdit(function ()
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('header', 'header'),
-		FormItem::image('image', 'Image'),
-		FormItem::ckeditor('text', 'text'),
-		FormItem::text('termin', 'name'),
-		FormItem::checkbox('enabled', 'enabled'),
-		FormItem::select('sale_id', 'Права доступа')->model('App\Sale')->display('name'),
+		FormItem::text('header', 'Заглавие'),
+		FormItem::image('image', 'Картинка'),
+		FormItem::ckeditor('text', 'Текст новости'),
+		FormItem::text('termin', 'Термин'),
+		FormItem::checkbox('enabled', 'Не показывать'),
+		FormItem::select('sale_id', 'Торговая сеть')->model('App\Sale')->display('name'),
 	]);
 	return $form;
 });

@@ -15,12 +15,26 @@
 //     return view('welcome');
 // });
 
+Route::get('/vk', function()
+{
+    return Redirect::to( Share::load('http://reklamka.dev', 'Моя рекламка')->vk() );
+});
+Route::get('/gplus', function()
+{
+    return Redirect::to( Share::load('http://reklamka.dev', 'Моя рекламка')->gplus() );
+});
+Route::get('/fb', function()
+{
+    return Redirect::to( Share::load('http://reklamka.dev', 'Моя рекламка')->facebook() );
+});
+
 Route::get('/', 'SiteController@startPage');
 Route::get('sales/{param}', 'SiteController@salesPage');
 Route::get('sale/{id}', 'SiteController@salePage');
+
 Route::get('reklams/{param}', 'SiteController@reklamsPage');
+Route::get('myreklams', 'SiteController@myreklamsPage');
 Route::get('reklam/{id}', 'SiteController@reklamPage');
-Route::get('location', 'SiteController@locationPage');
 Route::post('email', 'SiteController@add_email');
 
 Route::get('shops', 'SiteController@shopsPage');
@@ -30,11 +44,34 @@ Route::get('{city}/shops', 'SiteController@shopPage');
 Route::get('allnews', 'SiteController@newsPage');
 Route::get('onenews/{id}', 'SiteController@onenewsPage');
 
+Route::get('products', 'SiteController@productsPage');
+Route::get('products/{id}/category', 'SiteController@productsCategory');
+Route::get('products/{id}/reklamka', 'SiteController@productsReklamka');
+
 Route::post('comment', 'SiteController@add_comment');
+Route::post('respond', 'SiteController@add_respond');
 Route::post('search', 'SiteController@super_search');
 
+Route::post('show_sale', 'SiteController@show_sale');
+
+Route::get('contacts', 'SiteController@contact');
+Route::post('contact', 'EnquiryController@index');
 
 Route::get('getjson', 'SiteController@getjson');
+
+Route::get('location', 'MapController@locationPage');
+Route::get('mylocation', 'MapController@mylocationPage');
+Route::get('location/{shop}/shop', 'MapController@locationShop');
+Route::get('location/{sale}/sale', 'MapController@locationSale');
+Route::get('location/{city}/city', 'MapController@locationCity');
+
+  Route::get('contractor/setmail/{id}',  array('as' => 'setmail',
+            'uses' => 'ContractorController@setmail'));
+
+        Route::post('contractor/send',  array('as' => 'send',
+        'uses' => 'ContractorController@send'));
+
+
 
 Route::group(['middleware' => ['web']], function () {
 

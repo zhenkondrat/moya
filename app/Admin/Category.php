@@ -13,18 +13,18 @@ Admin::model('App\Category')->title('Категория')->display(function ()
 
 	 ]);
 	$display->columns([
-		Column::string('name')->label('Name'),
+		Column::string('name')->label('Название'),
 		Column::image('image'),
-		Column::string('position')->label('Name'),
+		Column::string('position')->label('Позицыя'),
 	]);
 	return $display;
 })->createAndEdit(function ()
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('name', 'Name')->required(),
-		FormItem::image('image', 'Image'),
-		FormItem::text('position', 'Name')->required(),
+		FormItem::text('name', 'Название')->required(),
+		FormItem::image('image', 'Картинка'),
+		FormItem::text('position', 'Позицыя')->required(),
 	]);
 	return $form;
 });
