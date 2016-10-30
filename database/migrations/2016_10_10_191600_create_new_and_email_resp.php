@@ -37,7 +37,7 @@ class CreateNewAndEmailResp extends Migration
             $table->text('text');
             $table->integer('reiting');
             $table->boolean('enabled')->default(0);
-            $table->integer('new_id');
+            $table->integer('new_id');//sale_id
             $table->integer('user_id');
             $table->timestamps();
         });

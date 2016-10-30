@@ -161,7 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Chencha\Share\ShareServiceProvider::class,
-        //Fbf\LaravelContactForm\LaravelContactFormServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
 

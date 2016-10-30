@@ -4,55 +4,57 @@
     	<div class="container">
 				<div class="row bottom-pad">
 					<div class="h6 btn">Подробная информация о торговой сети <span style="color:yellow;">"{{$saled->name}}"</span></div>
-					<div class="col-xs-12 col-md-3">
-						<div class="sale-logo">
-							<a href="{{$saled->site_url}}"><img src="{{ URL::to('/')}}/{{$saled->logo}}"></a>
-						</div>						
-					</div>
-					<?php 
-						$raitavg = App\Respond::avgReiting($saled->id); 
-						$numb = floor($raitavg);//ціла частина
-						$last_numb = $raitavg - $numb;
-						$last_numb = $last_numb*10;
-						$last_numb = floor($last_numb);//десятки 
-					?>
-					<div class="col-xs-12 col-md-9">
-						<div class="row">				
-							<div class="col-xs-6 col-md-4">
-								<span style="">Оценка сети: {{substr($raitavg, 0 , 3)}}</span>
-								<div class="stars">
-								 	@for ($i = 1; $i <= $numb; $i++)
-										<i class="fa fa-fw fa-star"></i>
-									@endfor
-										
-										@if($last_numb>8)
+					<div class="sale_info_content">
+						<div class="col-xs-12 col-md-3">
+							<div class="sale-logo">
+								<a href="{{$saled->site_url}}"><img src="{{ URL::to('/')}}/{{$saled->logo}}" width="100%"></a>
+							</div>						
+						</div>
+						<?php 
+							$raitavg = App\Respond::avgReiting($saled->id); 
+							$numb = floor($raitavg);//ціла частина
+							$last_numb = $raitavg - $numb;
+							$last_numb = $last_numb*10;
+							$last_numb = floor($last_numb);//десятки 
+						?>
+						<div class="col-xs-12 col-md-9">
+							<div class="row">				
+								<div class="col-xs-6 col-md-4">
+									<span class="sale-font">Оценка сети: {{substr($raitavg, 0 , 3)}}</span>
+									<div class="stars">
+									 	@for ($i = 1; $i <= $numb; $i++)
 											<i class="fa fa-fw fa-star"></i>
-											<?php $i++?>
-										@else
-											@if($last_numb>3)
-												<i class="fa fa-fw fa-star-half-o"></i>
+										@endfor
+											
+											@if($last_numb>8)
+												<i class="fa fa-fw fa-star"></i>
 												<?php $i++?>
+											@else
+												@if($last_numb>3)
+													<i class="fa fa-fw fa-star-half-o"></i>
+													<?php $i++?>
+												@endif
 											@endif
-										@endif
 
-									@for (; $i <= 5; $i++)
-										<i class="fa fa-fw fa-star-o"></i>
-									@endfor  
+										@for (; $i <= 5; $i++)
+											<i class="fa fa-fw fa-star-o"></i>
+										@endfor  
+									</div>
+									<p>{{App\Respond::where('new_id',$saled->id)->count()}} голосов</p>
 								</div>
-								<p>{{App\Respond::count()}} голосов</p>
-							</div>
-							<div class="col-xs-6 col-md-4">
-								<span style="">Поделится: </span>
-								<div class="social-share">
-									<a href="{{URL::to('vk')}}"><i class="fa fa-vk" aria-hidden="true"></i></a> 
-									<a href="{{URL::to('gplus')}}"><i class="fa fa-google-plus" aria-hidden="true"></i></a> 
-									<a href="{{URL::to('fb')}}"><i class="fa fa-facebook-official" aria-hidden="true"></i></a> 
+								<div class="col-xs-6 col-md-4">
+									<span class="sale-font">Поделится: </span></br>
+									<div class="social-share">
+										<a href="{{URL::to('vk')}}"><i class="fa fa-vk" aria-hidden="true"></i></a> 
+										<a href="{{URL::to('gplus')}}"><i class="fa fa-google-plus" aria-hidden="true"></i></a> 
+										<a href="{{URL::to('fb')}}"><i class="fa fa-facebook-official" aria-hidden="true"></i></a> 
+									</div>
 								</div>
-							</div>
-							<div class="col-xs-6 col-md-4">
-								
-								<a href="{{ action('SiteController@show_sale', 5 ) }}"><div class="show_map"><i class="fa fa-map-marker" aria-hidden="true"></i></div>Показать магазины на карте</a> 
-								
+								<div class="col-xs-6 col-md-4">
+									<span class="sale-font">Размищение</span></br>
+
+									<a href="{{ action('MapController@locationSale', $saled->id ) }}"><div class="show_map"><i class="fa fa-map-marker" aria-hidden="true"></i></div>  Показать магазины на карте</a> 
+								</div>	
 							</div>
 						</div>	
 					</div>
@@ -137,7 +139,7 @@
 										<td>{{$i}}</td>
 										<td>{!!ucfirst(trans($shop->work_graph))!!}</td>
 										<td>{{$shop->adress}}</td>
-										<td><a href="{{URL::to('location')}}">Показать на карте</a></td>
+										<td><a href="{{URL::to('location').'/'.$shop->id.'/shop'}}">Показать на карте</a></td>
 										{{-- <td>{{$rekl->enabled}}</td> --}}
 									</tr>
 								@endforeach

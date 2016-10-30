@@ -22,7 +22,7 @@
 					<h3><strong>Дополнительно:</strong></h3>	
 						<ul class="site-map">
 							<li><a href="{{URL::to('/')}}"><strong>Moyareklamka.com</strong></a></li>
-							<li><a href="">Свяжитесь с нами</a></li>
+							<li><a href="{{URL::to('/')}}/contacts">Свяжитесь с нами</a></li>
 							<li><a href="">Информация о нас</a></li>
 							<li><a href="">Подать обявление</a></li>
 						</ul>

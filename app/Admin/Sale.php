@@ -9,21 +9,21 @@ Admin::model('App\Sale')->title('Торговые сети')->display(function (
 {
 	$display = AdminDisplay::table();
 	$display->columns([
-		Column::string('name')->label('name'),
-		Column::string('site_url')->label('site_url'),
-		Column::image('logo'),
+		Column::string('name')->label('Название'),
+		Column::string('site_url')->label('Адрес url'),
+		Column::image('logo')->label('Логотип'),
 	]);
 	return $display;
 })->createAndEdit(function ()
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('name', 'name'),
-		FormItem::text('full_name', 'full_name'),
-		FormItem::text('site_url', 'site_url'),
+		FormItem::text('name', 'Название'),
+		FormItem::text('full_name', 'Полное название'),
+		FormItem::text('site_url', 'url'),
 		FormItem::text('email', 'Email'),
-		FormItem::ckeditor('about', 'about'),
-		FormItem::image('logo', 'Image'),
+		FormItem::ckeditor('about', 'О торговой сети'),
+		FormItem::image('logo', 'Логотип'),
 	]);
 	return $form;
 });

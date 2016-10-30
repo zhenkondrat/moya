@@ -23,6 +23,12 @@ class SiteController extends Controller
         			->with('sales', App\Sale::all());
     }
 
+    public function myreklamsPage()
+    {
+        //session(['user_id' => $user->id]);
+        return view('pages.myreklams');
+    }
+
 	public function reklamsPage($param)
     {   
         switch ($param) {
@@ -55,10 +61,11 @@ class SiteController extends Controller
 
     public function reklamPage($id)
     {
+        $reklam = App\Reklam::where('id', '=', $id)->first();
         return view('pages.reklam')
-                    ->with('activepage', 1)                 
+                    ->with('activepage', 1)                                   
                     ->with('categories', App\Category::all())                   
-                    ->with('reklam', App\Reklam::where('id', '=', $id)->first());
+                    ->with('reklam', $reklam);
     }
 
 
@@ -83,11 +90,6 @@ class SiteController extends Controller
         			->with('sales', $data);
     }
 
-    public function locationPage()
-    {
-        return view('pages.mapTest')
-        ->with('json', app\Shop::all());
-    }
 
     public function getjson()
     {
@@ -98,7 +100,7 @@ class SiteController extends Controller
     {
         $news = App\News::where('sale_id', $id)->get();
         $collection = App\Respond::orderBy('created_at', 'desc');
-        
+        $collection = $collection->where('new_id',$id);
         return view('pages.sale')
                     ->with('news', collect($news))
                     ->with('responds',  $collection->paginate(8))//----
@@ -234,5 +236,34 @@ class SiteController extends Controller
 
     public function show_sale(Request $request){
         return Redirect::back();    
+    }
+
+
+    public function contact(){
+        return view('pages.contact');
+    }
+
+    public function productsPage()
+    {
+        $collection = App\Product::orderBy('created_at', 'desc');
+
+        return view('pages.products')
+                    ->with('products', $collection );
+    }
+
+    public function productsCategory($id)
+    {
+        $collection = App\Product::orderBy('created_at', 'desc');
+
+        return view('pages.products')
+                    ->with('products', $collection->where('category_id',$id)->get() );
+    }
+
+    public function productsReklams($id)
+    {
+        $collection = App\Product::orderBy('created_at', 'desc');
+
+        return view('pages.products')
+                    ->with('products', $collection->where('reklam_id',$id)->get() );
     }
 }

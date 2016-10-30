@@ -5,7 +5,7 @@
  * For full list see documentation.
  */
 
-Admin::model('App\Magazine')->title('Gazetka')->display(function ()
+Admin::model('App\Magazine')->title('Газетка/страница')->display(function ()
 {
 	$display = AdminDisplay::datatables();
 	 $display->with();
@@ -13,16 +13,16 @@ Admin::model('App\Magazine')->title('Gazetka')->display(function ()
 
 	 ]);
 	$display->columns([
-		Column::image('image')->label('name'),
-		Column::string('reklam.name')->label('adress'),
+		Column::image('image')->label('Страница'),
+		Column::string('reklam.name')->label('Рекламка/Акция'),
 	]);
 	return $display;
 })->createAndEdit(function ()
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::image('image', 'Image'),
-		FormItem::select('reklam_id', 'Права доступа')->model('App\Reklam')->display('name'),
+		FormItem::image('image', 'Картинка'),
+		FormItem::select('reklam_id', 'Рекламка')->model('App\Reklam')->display('name'),
 	]);
 	return $form;
 });

@@ -43,7 +43,7 @@
 									<div class="row">
 										<div class="col-sm-12 col-md-12 categories">	
 											@foreach ($categories as $cat)  
-												<a href="#" class="white-btn btn ltl ta-left darknes">
+												<a href="{{URL::to('products')}}/{{$cat->id}}/category" class="white-btn btn ltl ta-left darknes">
 													<div class="row">
 														<div class="col-xs-3">
 															<img src="{{$cat->image}}" >

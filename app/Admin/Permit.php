@@ -9,7 +9,7 @@ Admin::model('App\Permit')->title('Права пользователей')->disp
 {
 	$display = AdminDisplay::table();
 	$display->columns([
-		Column::string('name')->label('Name'),
+		Column::string('name')->label('Название'),
 		Column::string('slug')->label('slug'),
 	]);
 	return $display;
@@ -17,7 +17,7 @@ Admin::model('App\Permit')->title('Права пользователей')->disp
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('name', 'Name')->required(),
+		FormItem::text('name', 'Название')->required(),
 		FormItem::text('slug', 'Slug')->required()->unique(),
 	]);
 	return $form;
