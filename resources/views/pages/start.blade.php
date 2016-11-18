@@ -109,7 +109,7 @@
 										<tbody>
 										<?php $i=0; ?>
 											@foreach ($reklams as $rekl)  
-												<tr>
+												<tr onclick="window.location.assign('{{URL::to('reklam')}}/{{$rekl->id}}');">
 													<?php $i+=1; ?>
 													<td>{{$i}}</td>
 													<td>{{ucfirst(trans($rekl->name))}}</td>
