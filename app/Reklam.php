@@ -49,9 +49,25 @@ class Reklam extends Model
     public function getDays()
     {
         $dt = new Carbon( $this->end ); 
-        $dt2 = Carbon::now();//new Carbon( $this->begin ); 
-        $dt3 = $dt->diffInDays($dt2);
+        $dt2 = Carbon::today();//new Carbon( $this->begin ); 
+        $dt3 = $dt2->diffInDays($dt, false);
         return $dt3;
+    }
+
+    public function isActive(){
+        $today = Carbon::today();
+        if ($today >= $this->begin && $today <= $this->end) 
+            return true;
+        else
+            return false;
+    }
+
+    public function isNext(){
+        $today = Carbon::today();
+        if ($today < $this->begin) 
+            return true;
+        else
+            return false;
     }
  
     public function getShopsAttribute($shops)

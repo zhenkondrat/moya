@@ -15,10 +15,11 @@ class SiteController extends Controller
 
     public function startPage()
     {
+        $data = App\Reklam::whereRaw('begin <= ? and end >= ?', [Carbon::today()->toDateString(), Carbon::today()->toDateString()])->limit(20)->get();
         return view('pages.start')
         			->with('activepage', 0)
         			->with('categories', App\Category::all()->sortBy('position'))
-        			->with('reklams', App\Reklam::where('enabled', 1)->limit(10)->get())
+        			->with('reklams',  $data )
                     ->with('news', App\News::all()->sortByDesc('id'))
         			->with('sales', App\Sale::all());
     }
@@ -37,7 +38,7 @@ class SiteController extends Controller
                 $active =1;
                 break;
             case 'actual':
-                $data = App\Reklam::where('begin', '<=', Carbon::today()->toDateString())->limit(20)->get();
+                $data = App\Reklam::whereRaw('begin <= ? and end >= ?', [Carbon::today()->toDateString(), Carbon::today()->toDateString()])->limit(20)->get();
                 $active =2;
                 break;
             case 'soon':
