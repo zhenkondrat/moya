@@ -48,7 +48,18 @@ class SiteController extends Controller
             default:
                 $active =1;
                 if (is_numeric($param))
-                    $data = App\Reklam::all();// filtr po categoria
+                    {
+                         $data = \DB::table('reklams')                                
+                                ->join('products', 'reklams.id', '=', 'products.reklam_id')
+                                ->join('categories', 'products.category_id', '=', 'categories.id')
+                                //->join('orders', 'users.id', '=', 'orders.user_id')
+                                    ->where('categories.id', '=', $param)
+                                        ->select('reklams.*')
+                                            ->groupBy('reklams.name')
+                                                ->get();
+                //convert array to model enquilopment collection                                                
+                $data = App\Reklam::hydrate($data);
+                    }
                 break;
         }
 
@@ -69,6 +80,18 @@ class SiteController extends Controller
                     ->with('reklam', $reklam);
     }
 
+    public function reklamFavorite($id)
+    {
+        App\Favorite::add($id);
+        return Redirect::back()->with('success', 'Вы успешно подписались, на рекламку');
+    }
+
+    public function reklamDisFavorite($id)
+    {
+        App\Favorite::del($id);
+        return Redirect::back()->with('success', 'Вы успешно otписались, c рекламки');
+    }
+
 
     public function salesPage($param)
     {
@@ -81,7 +104,23 @@ class SiteController extends Controller
                 break;            
             default:
                 if (is_numeric($param))
-                    $data = App\Reklam::all();// filtr po categoria
+                   { 
+                    $data = \DB::table('sales')
+                                ->join('shops', 'sales.id', '=', 'shops.sale_id')
+                                ->join('reklam_shop', 'shops.id', '=', 'reklam_shop.shop_id')
+                                ->join('reklams', 'reklam_shop.reklam_id', '=', 'reklams.id')
+                                ->join('products', 'reklams.id', '=', 'products.reklam_id')
+                                ->join('categories', 'products.category_id', '=', 'categories.id')
+                                //->join('orders', 'users.id', '=', 'orders.user_id')
+                                    ->where('categories.id', '=', $param)
+                                        ->select('sales.*')
+                                            ->groupBy('sales.name')
+                                                ->get();
+                    //convert array to model enquilopment collection                                                
+                    $data = App\Sale::hydrate($data);
+                   }
+                   //$data = App\Sale::all();// filtr po categoria
+                   //dd($data);
                 break;
         }
 

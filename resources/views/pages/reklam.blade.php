@@ -21,9 +21,22 @@
 						<div class="col-xs-12 col-md-9">
 							<div class="row">	
 								<div class="col-xs-6 col-md-3"> 
-									{{ucfirst(trans($reklam->name))}}	
-									{{$reklam->getEnd()}}			
-									{{$reklam->getDays()}}								
+									{{-- pdf_file --}}
+									@if (Session::has('user_id'))
+										@if( App\Favorite::isFavorite($reklam->id) )
+											<a href="{{ URL::to('/')}}/reklam/disfavorite/{{$reklam->id}}" class="btn-favorite">
+												<i class="fa fa-thumbs-down" aria-hidden="true"></i> 
+												Удалить с моих рекламок
+											</a>
+										@else
+											<a href="{{ URL::to('/')}}/reklam/favorite/{{$reklam->id}}" class="btn-favorite">
+												<i class="fa fa-thumbs-up" aria-hidden="true"></i> 
+												Добавить в мои рекламки
+											</a>
+										@endif										
+											
+									@endif	
+										<a href="{{ URL::to('/')}}/{{$reklam->pdf_file}}" class="btn_pdf">Просмотреть <strong>PDF</strong></a>					
 								</div>			
 								<div class="col-xs-6 col-md-3">
 									<span class="sale-font">Оценка сети: {{substr($raitavg, 0 , 3)}}</span>
@@ -104,6 +117,9 @@
 											</div>
 											<div class="product-price">
 												Цена: {{sprintf("%01.2f", $product->price)}}грн.
+											</div>
+											<div class="product-discount">
+												Скидка: {{sprintf("%01.2f", $product->discount)}} %
 											</div>
 										</div>
 										<div class="product-about">

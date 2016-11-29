@@ -11,7 +11,7 @@
 
 						<div class="h6 btn">Категории</div>
 						@foreach ($categories as $cat)  
-							<a href="#" class="white-btn btn ltl ta-left darknes fullw">
+							<a href="{{URL::to('/')}}/sales/{{$cat->id}}" class="white-btn btn ltl ta-left darknes fullw">
 													<div class="row">
 														<div class="col-xs-3">
 															<img src="{{URL::to('/')}}/{{$cat->image}}" >
