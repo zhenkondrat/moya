@@ -27,6 +27,7 @@ Admin::model('App\Product')->title('Продукт')->display(function ()
 		FormItem::image('image', 'Картинка'),
 		FormItem::ckeditor('about', 'О продукте'),
 		FormItem::text('price', 'Цена'),
+		FormItem::text('discount', 'Скидка')->defaultValue("0"),
 		FormItem::select('reklam_id', 'Рекламка')->model('App\Reklam')->display('name'),
 		FormItem::select('category_id', 'Категория')->model('App\Category')->display('name'),
 	]);

@@ -35,6 +35,9 @@ Route::get('sale/{id}', 'SiteController@salePage');
 Route::get('reklams/{param}', 'SiteController@reklamsPage');
 Route::get('myreklams', 'SiteController@myreklamsPage');
 Route::get('reklam/{id}', 'SiteController@reklamPage');
+Route::get('reklam/favorite/{id}', 'SiteController@reklamFavorite');
+Route::get('reklam/disfavorite/{id}', 'SiteController@reklamDisFavorite');
+
 Route::post('email', 'SiteController@add_email');
 
 Route::get('shops', 'SiteController@shopsPage');

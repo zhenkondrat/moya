@@ -21,7 +21,7 @@ class BaseTables extends Migration
             $table->string('phone', 20);
             $table->string('name');
             $table->boolean('enabled')->default(0);
-            $table->integer('sales_id');
+            $table->integer('sales_id');//edit to sale_id
             $table->timestamps();
 
             // $table->index('sales_id');

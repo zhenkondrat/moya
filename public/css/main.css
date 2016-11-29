@@ -646,10 +646,15 @@ th{
 	width: 40%;
 }
 
+h3{
+	padding: 10px;
+}
+
 h3>a{
 	font-size: 150%;
 	color: #333;
 	margin: 0 0 0 10px;
+
 
 	text-transform: uppercase;
 }
@@ -1175,6 +1180,7 @@ z-index: 2;
 	height: 100%;
 	background: #efefef;
 	padding: 20px;
+	position: relative;
 }
 
 .product-price{
@@ -1188,6 +1194,18 @@ z-index: 2;
 	font-weight: bold;
 }
 
+.product-discount{
+	background: #357;
+	position: absolute;
+	padding: 10px;
+	float: right;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	bottom: 0;
+	right: 0;
+}
+
 .product-name{
 	float: left;
 	font-size: 20px;
@@ -1199,4 +1217,33 @@ z-index: 2;
 .product-info-name{
 	float: left;
 	width: 100%;
+}
+
+.btn-favorite{
+	background: #fff;
+	padding: 10px;
+	display: block;
+	color: #333;
+	font-size: 12px;
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+.btn-favorite:hover, .btn_pdf:hover{
+	background: rgba(200, 230, 255, .4);
+}
+
+.btn-favorite>i{
+	font-size: 30px;	
+	display: block;
+	color: #337ab7;
+}
+
+.btn_pdf{
+	background: #fff;
+	padding: 10px;
+	display: block;
+	color: #333;
+	font-size: 12px;
+	text-align: center;
 }

@@ -24,6 +24,7 @@ Admin::model('App\Reklam')->title('Рекламка')->display(function ()
 	$form->items([
 		FormItem::text('name', 'Название'),
 		FormItem::image('image', 'Картинка'),
+		FormItem::file('pdf_file', 'PDF'),
 		FormItem::ckeditor('about', 'О рекламке'),
 		FormItem::date('begin', 'Дата начала'),
 		FormItem::date('end', 'Дата конца'),
